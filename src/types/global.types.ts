@@ -20,9 +20,7 @@ export type Settings = {
 }
 
 export type GuildSettings = {
-    prefix: string
     language: string
-    disabledChannels: string[]
     automod: {
         enabled: boolean
 
@@ -100,5 +98,11 @@ export type GuildSettings = {
     moderation: {
         enabled: boolean,
 
+        // Ban
+        ban: {
+            permissions: string[]
+            roles: string[]
+            requireReason: boolean
+        },
     }
 }

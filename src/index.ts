@@ -5,14 +5,12 @@
 
 import dotenv from 'dotenv'
 import { Client, Collection } from 'discord.js'
+import Sentry from '@sentry/node'
+
+import { Logger } from './handler/Logger';
 
 dotenv.config()
 
-export const client = new Client({
-    intents: Settings.intents,
-    presence: Settings.presence,
-});
-
-
-
 export const commandsCollection = new Collection<string, any>()
+
+export const logger = new Logger();

@@ -1,14 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "Node16",
-    "lib": ["ES2022", "ESNext"],
-    "outDir": "dist",
-    "rootDir": "src",
     "strict": true,
-    "noImplicitAny": true,
-    "inlineSourceMap": true,
-    "moduleResolution": "node16",
-    "skipLibCheck": true
-  }
+    "outDir": "dist",
+    "target": "es2022",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "useUnknownInCatchVariables": true,
+    "allowUnreachableCode": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node"],
+    "strictPropertyInitialization": false
+  },
+  "include": ["./", "./config.json"],
+  "exclude": ["/.github", "./dist", "./node_modules"]
 }
