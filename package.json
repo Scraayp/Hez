@@ -1,47 +1,35 @@
 {
   "name": "hez",
   "version": "1.0.0",
-  "description": "A multipurpose bot called Hez that is made for multiple servers.",
-  "main": "index.js",
-  "author": "Michal <hello@michalk.nl>",
-  "license": "MIT",
-  "type": "module",
-  "private": true,
+  "description": "Official Hez discord bot source code.",
   "scripts": {
+    "start": "ts-node src/index.ts",
     "build": "tsc",
-    "bot": "node --enable-source-maps ./dist/index.js",
-    "lint": "eslint \"**/*.ts\" --max-warnings=0",
-    "fix": "eslint \"**/*.ts\" --fix --max-warnings=0",
-    "build-prisma": "prisma generate",
-    "deploy-migrations": "prisma migrate deploy",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts"
+    "lint": "eslint src/**/*.ts",
+    "pretty": "prettier --write \"src/**/*.ts\"",
+    "compose": "docker-compose up -d",
+    "db:generate": "npx prisma generate",
+    "db:pull": "npx prisma db pull",
+    "db:migrate": "npx prisma migrate dev "
+  },
+  "main": "src/index.ts",
+  "repository": "https://github.com/HostSapling/Hostsapling-Bot.git",
+  "author": "Scraayp (Michal) <scraayp@hostsapling.net> | Hostsapling Team",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@prisma/client": "^4.11.0",
+    "@sentry/node": "^7.61.0",
+    "chalk": "4.1.2",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "phisherman.gg": "^0.0.2"
   },
   "devDependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^20.1.3",
-    "@typescript-eslint/eslint-plugin": "^5.59.5",
-    "@typescript-eslint/parser": "^5.59.5",
-    "eslint": "^8.40.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.8",
-    "prisma": "^4.14.0",
-    "typescript": "^5.0.4"
-  },
-  "dependencies": {
-    "@discordjs/opus": "^0.9.0",
-    "@discordjs/voice": "^0.16.0",
-    "@prisma/client": "^4.14.0",
-    "discord.js": "^14.11.0",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "express-validator": "^7.0.1",
-    "libsodium-wrappers": "^0.7.11",
-    "queue": "^7.0.0",
-    "tslog": "^4.8.2",
-    "unicode-emoji": "^2.4.0"
-  },
-  "engines": {
-    "node": ">=16"
+    "eslint": "^8.35.0",
+    "prettier": "2.8.8",
+    "prisma": "^4.11.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   }
 }
