@@ -1,3 +1,15 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
+import chalk from 'chalk';
 
-export let prismaClient = new PrismaClient();
+export class prismaClient extends PrismaClient {
+  constructor() {
+    super();
+    this.start();
+  }
+
+  async start(): Promise<void> {
+    await this.$connect();
+
+    console.log(chalk.greenBright('[PRISMA]'), 'connected');
+  }
+}
