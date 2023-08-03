@@ -2,6 +2,7 @@ import * as Sentry from '@sentry/node';
 import chalk from 'chalk';
 
 import dotenv from 'dotenv';
+import { prisma } from '..';
 
 dotenv.config();
 
@@ -11,9 +12,10 @@ export class sentryClient {
   }
 
   public async start(): Promise<void> {
+    let botSettings = await prisma.botSettings.findFirst({});
+    let dsn = botSettings?.sentryDSN;
     Sentry.init({
-      dsn: process.env.SENTRY_DSN,
-
+      dsn: dsn,
       tracesSampleRate: 1.0,
     });
     console.log(chalk.whiteBright('[SENTRY]'), 'initialized');
