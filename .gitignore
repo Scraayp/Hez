@@ -1,3 +1,12 @@
-node_modules
 # Keep environment variables out of version control
 .env
+
+# Keep npm modules out of version control
+node_modules
+
+# Keep npm package lock out of version control
+package-lock.json
+
+# Ignore log files made by yarn
+yarn-error.log
+yarn-debug.log*
