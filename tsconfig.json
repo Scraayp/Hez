@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "lib": ["ES2018"],
+    "sourceMap": true,
+    "outDir": "./prod",
+    "rootDir": "./src",
     "strict": true,
-    "outDir": "dist",
-    "target": "es2022",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "useUnknownInCatchVariables": true,
-    "allowUnreachableCode": false,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "importHelpers": true,
-    "typeRoots": ["node_modules/@types"],
-    "types": ["node"],
-    "strictPropertyInitialization": false
-  },
-  "include": ["./", "./config.json"],
-  "exclude": ["/.github", "./dist", "./node_modules"]
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }

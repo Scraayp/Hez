@@ -10,10 +10,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model BotSettings {
+  id    String @id @default(cuid())
+  token String
+
+  ownerId    String
+  developers String[]
+
+  supportGuild       Guild  @relation(fields: [supportGuildID], references: [id])
+  supportGuildID     String
+  supportGuildInvite String
+
+  presenceStatus String
+  presenceType   String
+  presenceName   String
+
+  sentryDSN String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Guild {
-  id       String @id @default(cuid())
+  id String @id
+
   language String @default("en")
 
-  // Store a object with the automod settings
-  automod Json
+  BotSettings BotSettings[]
 }

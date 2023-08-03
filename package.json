@@ -18,7 +18,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@prisma/client": "^4.11.0",
+    "@prisma/client": "^5.1.0",
     "@sentry/node": "^7.61.0",
     "chalk": "4.1.2",
     "discord.js": "^14.7.1",
